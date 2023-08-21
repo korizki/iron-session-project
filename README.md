@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project, with Session Management using 
 
 1. Prepare a Next.js Project or you can use your existing Next.js project
 
-2. Create a session configuration, by creating new file on `root-project-filter/lib/config`, named `session-config.js`
+2. Create a session configuration, by creating new file on `root-project-folder/lib/config/session-config.js`
 ```bash
 export const ironOptions = {
    cookieName: "your_app_session",
@@ -17,7 +17,7 @@ export const ironOptions = {
 }
 ```
 
-3. Create a wrapper function, we will using this function when interact with session. This file may created at `root-project-filter/lib/config`, named `useSession.js`
+3. Create a wrapper function, we will using this function when interact with session. This file may created at `root-project-folder/lib/config/useSession.js`
 
 ```bash
 import { withIronSessionApiRoute, withIronSessionSsr } from 'iron-session/next'
@@ -32,7 +32,7 @@ export function withSessionSsr(handler) {
 }
 ```
 
-4. Create an api handle our request to create `(on Log In)`  or delete `(on Log Out)` session. First create new file handling log in process on `root-project-filter/pages/api/login.ts`
+4. Create an api handle our request to create `(on Log In)`  or delete `(on Log Out)` session. First create new file handling log in process on `root-project-folder/pages/api/login.ts`
 ```bash
 import { NextApiResponse } from "next"
 import { withSessionRoute } from '../../lib/config/useSession'
@@ -71,7 +71,7 @@ async function login(req: NextApiRequest, res: NextApiResponse) {
 }
 ```
 
-5. Then we create a new file on existing folder for handling log out process (clear session) `root-project-filter/pages/api/logout.ts`
+5. Then we create a new file on existing folder for handling log out process (clear session) `root-project-folder/pages/api/logout.ts`
 ```bash
 import { withSessionRoute } from "@/lib/config/useSession";
 import { NextApiRequest, NextApiResponse } from "next";
