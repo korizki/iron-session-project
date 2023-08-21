@@ -44,6 +44,7 @@ export default function Home() {
             onChange={e => setEmail(e.target.value)}
             className={inputStyle}
             placeholder="e.g. rzk.ramadhan@gmail.com"
+            required
           />
           <input
             type="text"
@@ -51,6 +52,7 @@ export default function Home() {
             value={name}
             className={inputStyle}
             placeholder="e.g. Rizki Ramadhan"
+            required
           />
           <button className="w-full bg-purple-600 p-3 text-white rounded-lg cursor-pointer mb-3 hover:bg-purple-800">Log In</button>
         </form>
